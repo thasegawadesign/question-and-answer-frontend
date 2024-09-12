@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import "tailwindcss-radix";
 
 const config: Config = {
   content: [
@@ -6,14 +7,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
-  },
+  theme: {},
   plugins: [],
 };
 export default config;
