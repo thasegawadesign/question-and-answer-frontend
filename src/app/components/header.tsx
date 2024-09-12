@@ -1,4 +1,4 @@
-import { PlusCircleIcon } from "@heroicons/react/16/solid";
+import { CheckBadgeIcon, PlusCircleIcon } from "@heroicons/react/16/solid";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -9,7 +9,8 @@ export default function Header() {
         className={clsx("mb-5 flex justify-between bg-gray-800 px-3 py-3")}
       >
         <h1>
-          <Link className={clsx("text-lg text-white")} href={"/"}>
+          <Link className={clsx("flex gap-1 text-lg text-white")} href={"/"}>
+            <CheckBadgeIcon className="w-5" />
             一問一答メーカー
           </Link>
         </h1>
