@@ -1,13 +1,16 @@
+"use client";
+
 import Header from "@/app/components/header";
 import "@/app/globals.css";
 import clsx from "clsx";
+import { signIn } from "next-auth/react";
 
 export default function Login() {
   return (
     <>
       <Header />
       <main className={clsx("px-3")}>
-        <button className="gsi-material-button">
+        <button className="gsi-material-button" onClick={() => signIn()}>
           <div className="gsi-material-button-state"></div>
           <div className="gsi-material-button-content-wrapper">
             <div className="gsi-material-button-icon">
