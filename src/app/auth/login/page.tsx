@@ -1,5 +1,5 @@
 import Header from "@/app/components/header";
-import LoginButton from "@/app/components/LoginButton";
+import LoginButton from "@/app/components/loginButton";
 import "@/app/globals.css";
 import clsx from "clsx";
 
