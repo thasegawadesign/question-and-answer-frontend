@@ -14,9 +14,7 @@ export default function Home() {
             className={clsx("rounded bg-gray-100")}
           >
             <Accordion.AccordionTrigger
-              className={clsx(
-                "group flex w-full justify-between px-4 py-4 font-semibold"
-              )}
+              className={clsx("group flex w-full justify-between px-4 py-3.5")}
             >
               <span className={clsx("text-lg")}>Reactとは？</span>
               <ChevronRightIcon
@@ -34,9 +32,7 @@ export default function Home() {
             className={clsx("rounded bg-gray-100")}
           >
             <Accordion.AccordionTrigger
-              className={clsx(
-                "group flex w-full justify-between px-4 py-4 font-semibold"
-              )}
+              className={clsx("group flex w-full justify-between px-4 py-3.5")}
             >
               <span className={clsx("text-lg")}>Next.jsとは？</span>
               <ChevronRightIcon
@@ -54,9 +50,7 @@ export default function Home() {
             className={clsx("rounded bg-gray-100")}
           >
             <Accordion.AccordionTrigger
-              className={clsx(
-                "group flex w-full justify-between px-4 py-4 font-semibold"
-              )}
+              className={clsx("group flex w-full justify-between px-4 py-3.5")}
             >
               <span className={clsx("text-lg")}>REST APIとは？</span>
               <ChevronRightIcon
