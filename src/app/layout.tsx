@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
+import NextAuthProvider from "../../providers/nextAuth";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={clsx(notoSansJP.className)}>{children}</body>
+      <body className={clsx(notoSansJP.className)}>
+        <NextAuthProvider>{children}</NextAuthProvider>
+      </body>
     </html>
   );
 }
