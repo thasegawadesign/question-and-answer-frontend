@@ -2,13 +2,17 @@ import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import clsx from "clsx";
 import Header from "./components/header";
+import LogoutButton from "./components/logoutButton";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Header />
       <main className={clsx("px-3")}>
-        <Accordion.Root type="multiple" className={clsx("flex flex-col gap-2")}>
+        <Accordion.Root
+          type="multiple"
+          className={clsx("mb-[560px] flex flex-col gap-2")}
+        >
           <Accordion.Item
             value="item-1"
             className={clsx("rounded bg-gray-100")}
@@ -64,6 +68,11 @@ export default function Home() {
             </Accordion.AccordionContent>
           </Accordion.Item>
         </Accordion.Root>
+        <div
+          className={clsx("mb-3 flex justify-center rounded bg-red-700 py-4")}
+        >
+          <LogoutButton />
+        </div>
       </main>
     </>
   );

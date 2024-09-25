@@ -7,12 +7,17 @@ import { createUser } from "@/app/utils/createUser";
 import { getUser } from "@/app/utils/getUser";
 import clsx from "clsx";
 import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export default async function Login() {
   const session = await getServerSession(options);
   const user = await getUser(session?.user?.email as string);
+  const isLogin = Boolean(session?.user?.email);
   if (!user) {
     await createUser(session?.user?.email as string, "Google");
+  }
+  if (isLogin) {
+    redirect("/");
   }
 
   return (
@@ -24,7 +29,7 @@ export default async function Login() {
         </h1>
         <div className={clsx("flex justify-between")}>
           {!user && <LoginButton />}
-          <LogoutButton />
+          {isLogin && <LogoutButton />}
         </div>
       </main>
     </>
