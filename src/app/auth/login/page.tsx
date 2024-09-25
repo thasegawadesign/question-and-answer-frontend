@@ -52,8 +52,7 @@ export default async function Login() {
   };
   const user = await getUser(session?.user?.email as string);
   if (!user) {
-    if (!session?.user?.email) return;
-    await createUser(session.user.email, "Google");
+    await createUser(session?.user?.email as string, "Google");
   }
 
   return (
@@ -64,7 +63,7 @@ export default async function Login() {
           {session?.user?.name ? `ログイン中 ${session.user.name} さん` : ""}
         </h1>
         <div className={clsx("flex justify-between")}>
-          <LoginButton />
+          {!user && <LoginButton />}
           <LogoutButton />
         </div>
       </main>
