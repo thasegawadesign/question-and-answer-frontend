@@ -33,11 +33,11 @@ export default function Home() {
             <div key={i}>
               <Accordion.Item
                 value={String(item.id)}
-                className={clsx("rounded bg-gray-100")}
+                className={clsx("rounded-lg bg-gray-100")}
               >
                 <Accordion.AccordionTrigger
                   className={clsx(
-                    "group flex w-full justify-between px-4 py-3.5"
+                    "group flex w-full justify-between px-4 py-4"
                   )}
                 >
                   <span className={clsx("text-lg")}>{item.question}</span>
