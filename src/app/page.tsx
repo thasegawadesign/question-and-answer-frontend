@@ -15,11 +15,12 @@ export default function Home() {
   const { data: session } = useSession();
   const [items, setItems] = useState<Item[]>([]);
   useEffect(() => {
+    if (!session?.user?.email) return;
     const timer = setTimeout(async () => {
       setItems(await getItems(session?.user?.email as string));
     }, 10);
     return () => clearTimeout(timer);
-  }, [session?.user?.email]);
+  }, [session]);
 
   return (
     <>
