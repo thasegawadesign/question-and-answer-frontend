@@ -1,11 +1,11 @@
 import Header from "@/app/components/header";
 import LogoutButton from "@/app/components/logoutButton";
 import { options } from "@/app/options";
+import { getItems } from "@/app/utils/getItems";
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import clsx from "clsx";
 import { getServerSession } from "next-auth";
-import { getItems } from "./utils/getItems";
 
 type Item = {
   id: number;
