@@ -2,6 +2,7 @@
 
 import DeleteButton from "@/components/deleteButton";
 import Header from "@/components/header";
+import Loading from "@/components/loading";
 import LogoutButton from "@/components/logoutButton";
 import { Item } from "@/types/Item";
 import { getItems } from "@/utils/getItems";
@@ -14,10 +15,12 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const { data: session } = useSession();
   const [items, setItems] = useState<Item[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (!session?.user?.email) return;
     const timer = setTimeout(async () => {
       setItems(await getItems(session?.user?.email as string));
+      setIsLoading(false);
     }, 10);
     return () => clearTimeout(timer);
   }, [session]);
@@ -30,6 +33,7 @@ export default function Home() {
           type="multiple"
           className={clsx("mb-[720px] flex flex-col gap-2")}
         >
+          {isLoading && <Loading />}
           {items.map((item, i) => (
             <div key={i}>
               <Accordion.Item
