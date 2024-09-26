@@ -28,10 +28,10 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className={clsx("px-3")}>
+      <main className={clsx("relative px-3")}>
         <Accordion.Root
           type="multiple"
-          className={clsx("mb-[720px] flex flex-col gap-2")}
+          className={clsx("mb-[760px] flex flex-col gap-2")}
         >
           {isLoading && <Loading />}
           {items.map((item, i) => (
@@ -66,7 +66,7 @@ export default function Home() {
           ))}
         </Accordion.Root>
         <div
-          className={clsx("mb-3 flex justify-center rounded bg-red-700 py-4")}
+          className={clsx("mb-3 flex justify-center rounded bg-red-800 py-4")}
         >
           <LogoutButton />
         </div>
