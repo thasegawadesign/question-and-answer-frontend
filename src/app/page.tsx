@@ -29,7 +29,7 @@ export default async function Home() {
       <main className={clsx("px-3")}>
         <Accordion.Root
           type="multiple"
-          className={clsx("mb-[560px] flex flex-col gap-2")}
+          className={clsx("mb-[720px] flex flex-col gap-2")}
         >
           {items.map((item, i) => (
             <div key={i}>
