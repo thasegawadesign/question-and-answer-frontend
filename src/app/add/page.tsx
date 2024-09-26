@@ -34,7 +34,7 @@ export default function Add() {
       <main className={clsx("pl-1.5 pr-3")}>
         <Form.Root onSubmit={handleSubmit}>
           <Form.Field className={clsx("mb-2 flex gap-1")} name="question">
-            <div className={clsx("grid place-items-center")}>
+            <div className={clsx("grid shrink-0 place-items-start")}>
               <Form.Label className="question rounded bg-gray-800 px-3 py-2 text-white">
                 問題
               </Form.Label>
@@ -58,7 +58,7 @@ export default function Add() {
             </div>
           </Form.Field>
           <Form.Field className={clsx("mb-4 flex gap-1")} name="answer">
-            <div className={clsx("grid place-items-center")}>
+            <div className={clsx("grid shrink-0 place-items-start")}>
               <Form.Label className={clsx("answer px-3 py-2")}>解答</Form.Label>
             </div>
             <div className={clsx("flex-grow")}>
@@ -82,7 +82,9 @@ export default function Add() {
           <Form.Submit asChild>
             <div className={clsx("pl-[60px]")}>
               <button
-                className={clsx("rounded bg-orange-500 px-10 py-2 text-white")}
+                className={clsx(
+                  "w-full rounded bg-orange-500 px-8 py-3 text-white"
+                )}
               >
                 追加する
               </button>
