@@ -1,10 +1,10 @@
-import Header from "@/app/components/header";
-import LoginButton from "@/app/components/loginButton";
-import LogoutButton from "@/app/components/logoutButton";
 import "@/app/globals.css";
 import { options } from "@/app/options";
-import { createUser } from "@/app/utils/createUser";
-import { getUser } from "@/app/utils/getUser";
+import Header from "@/components/header";
+import LoginButton from "@/components/loginButton";
+import LogoutButton from "@/components/logoutButton";
+import { createUser } from "@/utils/createUser";
+import { getUser } from "@/utils/getUser";
 import clsx from "clsx";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
