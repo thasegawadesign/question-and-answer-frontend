@@ -1,4 +1,5 @@
 import NextAuthProvider from "@/providers/nextAuth";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
@@ -13,6 +14,8 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
 });
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,6 +26,7 @@ export default function RootLayout({
       <body className={clsx(notoSansJP.className)}>
         <NextAuthProvider>{children}</NextAuthProvider>
       </body>
+      {isProduction && <GoogleAnalytics gaId={process.env.GA_ID || ""} />}
     </html>
   );
 }
