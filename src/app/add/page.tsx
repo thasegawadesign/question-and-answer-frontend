@@ -5,10 +5,12 @@ import { addItem } from "@/app/utils/addItem";
 import * as Form from "@radix-ui/react-form";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function Add() {
   const { data: session } = useSession();
+  const router = useRouter();
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const formData = new FormData(event.target as HTMLFormElement);
@@ -23,6 +25,7 @@ export default function Add() {
       data.email as string
     );
     (event.target as HTMLFormElement).reset();
+    router.push("/");
   };
 
   return (
