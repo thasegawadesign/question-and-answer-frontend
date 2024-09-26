@@ -1,7 +1,7 @@
 "use client";
 
-import Header from "@/app/components/header";
-import { addItem } from "@/app/utils/addItem";
+import Header from "@/components/header";
+import { addItem } from "@/utils/addItem";
 import * as Form from "@radix-ui/react-form";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";

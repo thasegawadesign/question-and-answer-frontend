@@ -1,27 +1,25 @@
-import Header from "@/app/components/header";
-import LogoutButton from "@/app/components/logoutButton";
-import { options } from "@/app/options";
-import { getItems } from "@/app/utils/getItems";
+"use client";
+
+import DeleteButton from "@/components/deleteButton";
+import Header from "@/components/header";
+import LogoutButton from "@/components/logoutButton";
+import { Item } from "@/types/Item";
+import { getItems } from "@/utils/getItems";
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import clsx from "clsx";
-import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
-type Item = {
-  id: number;
-  question: string;
-  answer: string;
-  user: {
-    id: number;
-    email: string;
-    provider: string;
-  };
-  user_email: string;
-};
-
-export default async function Home() {
-  const session = await getServerSession(options);
-  const items: Item[] = await getItems(session?.user?.email as string);
+export default function Home() {
+  const { data: session } = useSession();
+  const [items, setItems] = useState<Item[]>([]);
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      setItems(await getItems(session?.user?.email as string));
+    }, 10);
+    return () => clearTimeout(timer);
+  }, [session?.user?.email]);
 
   return (
     <>
@@ -29,7 +27,7 @@ export default async function Home() {
       <main className={clsx("px-3")}>
         <Accordion.Root
           type="multiple"
-          className={clsx("mb-[560px] flex flex-col gap-2")}
+          className={clsx("mb-[720px] flex flex-col gap-2")}
         >
           {items.map((item, i) => (
             <div key={i}>
@@ -49,8 +47,14 @@ export default async function Home() {
                     )}
                   />
                 </Accordion.AccordionTrigger>
-                <Accordion.AccordionContent className={clsx("px-4 pb-4")}>
-                  {item.answer}
+                <Accordion.AccordionContent>
+                  <div className={clsx("flex justify-between gap-2 px-4 pb-4")}>
+                    <span>{item.answer}</span>
+                    <DeleteButton
+                      id={item.id}
+                      email={session?.user?.email as string}
+                    />
+                  </div>
                 </Accordion.AccordionContent>
               </Accordion.Item>
             </div>
