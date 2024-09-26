@@ -3,7 +3,6 @@
 import { deleteItem } from "@/utils/deleteItem";
 import { TrashIcon } from "@heroicons/react/16/solid";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
 
 type Props = {
   id: number;
@@ -12,10 +11,9 @@ type Props = {
 
 export default function DeleteButton(props: Props) {
   const { id, email } = props;
-  const router = useRouter();
   const handleClick = async (id: number, email: string) => {
     await deleteItem(id, email);
-    router.refresh();
+    window.location.reload();
   };
   return (
     <>
