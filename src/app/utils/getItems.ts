@@ -1,7 +1,7 @@
 export const getItems = async (email: string) => {
   try {
     const response = await fetch(
-      `${process.env.API_URL}/api/items?email=${email}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/items?email=${email}`,
       {
         method: "GET",
       }

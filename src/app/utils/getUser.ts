@@ -1,7 +1,7 @@
 export const getUser = async (email: string) => {
   try {
     const response = await fetch(
-      `${process.env.API_URL}/api/users?email=${email}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/users?email=${email}`,
       {
         method: "GET",
       }

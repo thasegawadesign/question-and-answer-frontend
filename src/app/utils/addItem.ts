@@ -1,15 +1,20 @@
-export const createUser = async (email: string, provider: string) => {
+export const addItem = async (
+  question: string,
+  answer: string,
+  email: string
+) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/users`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/items`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: email,
-          provider: provider,
+          question: question,
+          answer: answer,
+          user_email: email,
         }),
       }
     );
