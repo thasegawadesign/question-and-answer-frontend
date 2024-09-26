@@ -43,7 +43,7 @@ export default function Home() {
                   <span className={clsx("text-lg")}>{item.question}</span>
                   <ChevronRightIcon
                     className={clsx(
-                      "w-6 text-orange-600 transition-transform group-radix-state-open:rotate-90"
+                      "w-6 transition-transform group-radix-state-open:rotate-90"
                     )}
                   />
                 </Accordion.AccordionTrigger>
