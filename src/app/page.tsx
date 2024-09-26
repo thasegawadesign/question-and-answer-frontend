@@ -1,10 +1,17 @@
+import Header from "@/app/components/header";
+import LogoutButton from "@/app/components/logoutButton";
+import { options } from "@/app/options";
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import clsx from "clsx";
-import Header from "./components/header";
-import LogoutButton from "./components/logoutButton";
+import { getServerSession } from "next-auth";
+import { getItems } from "./utils/getItems";
 
 export default async function Home() {
+  const session = await getServerSession(options);
+  const items: [] = await getItems(session?.user?.email as string);
+  console.log(items);
+
   return (
     <>
       <Header />
