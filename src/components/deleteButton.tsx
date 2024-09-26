@@ -18,7 +18,7 @@ export default function DeleteButton(props: Props) {
   return (
     <>
       <button onClick={() => handleClick(id, email)}>
-        <TrashIcon className={clsx("w-6 text-red-600")} />
+        <TrashIcon className={clsx("w-5 text-red-600")} />
       </button>
     </>
   );

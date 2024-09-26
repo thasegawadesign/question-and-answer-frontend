@@ -1,7 +1,7 @@
+import NextAuthProvider from "@/providers/nextAuth";
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
-import NextAuthProvider from "../../providers/nextAuth";
 import "./globals.css";
 
 export const metadata: Metadata = {
