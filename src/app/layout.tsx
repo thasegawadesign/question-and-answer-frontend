@@ -27,10 +27,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
-      </head>
       <body className={clsx(notoSansJP.className)}>
         <NextAuthProvider>{children}</NextAuthProvider>
       </body>
