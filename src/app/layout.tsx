@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   title: "一問一答メーカー",
   description: "一問一答メーカー",
   icons: {
-    apple: "/apple-touch-icon.png",
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
 };
 
@@ -26,6 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+      </head>
       <body className={clsx(notoSansJP.className)}>
         <NextAuthProvider>{children}</NextAuthProvider>
       </body>
