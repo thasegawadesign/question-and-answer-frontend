@@ -31,7 +31,7 @@ export default function Add() {
   return (
     <>
       <Header />
-      <main className={clsx("pl-1.5 pr-3 pt-5")}>
+      <main className={clsx("pl-1.5 pr-3 pt-3")}>
         <Form.Root onSubmit={handleSubmit}>
           <Form.Field className={clsx("mb-2 flex gap-1")} name="question">
             <div className={clsx("grid shrink-0 place-items-start")}>
