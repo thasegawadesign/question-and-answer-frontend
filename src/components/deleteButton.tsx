@@ -45,7 +45,7 @@ export default function DeleteButton(props: Props) {
               </AlertDialog.Cancel>
               <AlertDialog.Action asChild>
                 <button
-                  className={clsx("rounded bg-red-600 px-6 py-2 text-white")}
+                  className={clsx("rounded bg-red-600 px-6 py-2.5 text-white")}
                   onClick={() => handleClick(id, email)}
                 >
                   削除する
