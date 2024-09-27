@@ -10,12 +10,29 @@ import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Home() {
   const { data: session } = useSession();
+  const router = useRouter();
   const [items, setItems] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const handleKeydown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        router.push("/add");
+      }
+    },
+    [router]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeydown);
+    return () => window.removeEventListener("keydown", handleKeydown);
+  }, [handleKeydown]);
+
   useEffect(() => {
     if (!session?.user?.email) return;
     const timer = setTimeout(async () => {
