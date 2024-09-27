@@ -41,9 +41,11 @@ export default function DeleteButton(props: Props) {
             <AlertDialog.Description className={clsx("mb-5 text-gray-500")}>
               この操作は取り消すことができません。
             </AlertDialog.Description>
-            <div className={clsx("flex justify-end gap-6")}>
+            <div className={clsx("flex justify-end gap-2")}>
               <AlertDialog.Cancel asChild>
-                <button className={clsx("text-gray-300")}>キャンセル</button>
+                <button className={clsx("px-6 py-2.5 text-gray-300")}>
+                  キャンセル
+                </button>
               </AlertDialog.Cancel>
               <AlertDialog.Action asChild>
                 <button
