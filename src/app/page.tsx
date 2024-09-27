@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className={clsx("relative px-3")}>
+      <main className={clsx("relative px-3 pb-3 pt-3")}>
         <Accordion.Root
           type="multiple"
           className={clsx("mb-[760px] flex flex-col gap-2")}
@@ -82,9 +82,7 @@ export default function Home() {
             </div>
           ))}
         </Accordion.Root>
-        <div
-          className={clsx("mb-3 flex justify-center rounded bg-red-800 py-4")}
-        >
+        <div className={clsx("flex justify-center rounded bg-red-800 py-4")}>
           <LogoutButton />
         </div>
       </main>

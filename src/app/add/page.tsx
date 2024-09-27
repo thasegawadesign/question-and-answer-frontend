@@ -31,7 +31,7 @@ export default function Add() {
   return (
     <>
       <Header />
-      <main className={clsx("pl-1.5 pr-3")}>
+      <main className={clsx("pl-1.5 pr-3 pt-5")}>
         <Form.Root onSubmit={handleSubmit}>
           <Form.Field className={clsx("mb-2 flex gap-1")} name="question">
             <div className={clsx("grid shrink-0 place-items-start")}>
@@ -57,7 +57,7 @@ export default function Add() {
               </Form.Message>
             </div>
           </Form.Field>
-          <Form.Field className={clsx("mb-4 flex gap-1")} name="answer">
+          <Form.Field className={clsx("mb-3 flex gap-1")} name="answer">
             <div className={clsx("grid shrink-0 place-items-start")}>
               <Form.Label className={clsx("answer px-3 py-2")}>解答</Form.Label>
             </div>

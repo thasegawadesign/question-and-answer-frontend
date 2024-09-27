@@ -23,7 +23,7 @@ export default async function Login() {
   return (
     <>
       <Header />
-      <main className={clsx("px-3")}>
+      <main className={clsx("px-3 pt-3")}>
         <h1 className={clsx("mb-2 text-green-600")}>
           {session?.user?.name ? `ログイン中 ${session.user.name} さん` : ""}
         </h1>
