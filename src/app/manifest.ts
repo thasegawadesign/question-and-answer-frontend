@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "一問一答メーカー",
     start_url: "/",
     display: "standalone",
-    background_color: "#fff",
-    theme_color: "#fff",
+    background_color: "#1f2937",
+    theme_color: "#1f2937",
     icons: [
       {
         src: "/apple-icon.png",
