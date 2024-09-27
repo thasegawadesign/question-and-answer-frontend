@@ -13,7 +13,7 @@ export default function Header() {
     <>
       <header
         className={clsx(
-          "sticky top-0 z-50 mb-5 flex justify-between bg-gray-800 px-3 py-3"
+          "sticky top-0 z-50 flex justify-between bg-gray-800 px-3 py-3"
         )}
       >
         <h1>
