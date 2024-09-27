@@ -20,7 +20,7 @@ export default function DeleteButton(props: Props) {
     <>
       <AlertDialog.Root>
         <AlertDialog.Trigger asChild>
-          <TrashIcon className={clsx("w-5 text-red-600")} />
+          <TrashIcon className={clsx("w-5 shrink-0 text-red-600")} />
         </AlertDialog.Trigger>
         <AlertDialog.Portal>
           <AlertDialog.Overlay
