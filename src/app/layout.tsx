@@ -8,6 +8,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "一問一答メーカー",
   description: "一問一答メーカー",
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 const notoSansJP = Noto_Sans_JP({

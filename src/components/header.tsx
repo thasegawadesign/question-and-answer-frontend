@@ -1,4 +1,4 @@
-import { CheckBadgeIcon, PlusCircleIcon } from "@heroicons/react/16/solid";
+import { PlusCircleIcon } from "@heroicons/react/16/solid";
 import clsx from "clsx";
 import { M_PLUS_Rounded_1c } from "next/font/google";
 import Link from "next/link";
@@ -18,12 +18,9 @@ export default function Header() {
       >
         <h1>
           <Link
-            className={clsx(
-              `${mPlusRounded1c.className} flex gap-1 text-lg text-white`
-            )}
+            className={clsx(`${mPlusRounded1c.className} text-lg text-white`)}
             href={"/"}
           >
-            <CheckBadgeIcon className="w-5" />
             一問一答メーカー
           </Link>
         </h1>
