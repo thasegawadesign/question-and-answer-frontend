@@ -6,27 +6,31 @@ import * as Form from "@radix-ui/react-form";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useCallback } from "react";
 
 export default function Add() {
   const { data: session } = useSession();
   const router = useRouter();
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    const formData = new FormData(event.target as HTMLFormElement);
-    const data = {
-      question: formData.get("question"),
-      answer: formData.get("answer"),
-      email: session?.user?.email,
-    };
-    await addItem(
-      data.question as string,
-      data.answer as string,
-      data.email as string
-    );
-    (event.target as HTMLFormElement).reset();
-    router.push("/");
-  };
+
+  const handleSubmit = useCallback(
+    async (event: React.FormEvent) => {
+      event.preventDefault();
+      const formData = new FormData(event.target as HTMLFormElement);
+      const data = {
+        question: formData.get("question"),
+        answer: formData.get("answer"),
+        email: session?.user?.email,
+      };
+      await addItem(
+        data.question as string,
+        data.answer as string,
+        data.email as string
+      );
+      (event.target as HTMLFormElement).reset();
+      router.push("/");
+    },
+    [router, session]
+  );
 
   return (
     <>
