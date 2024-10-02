@@ -62,7 +62,9 @@ export default function Home() {
                     "group flex w-full justify-between px-4 py-4"
                   )}
                 >
-                  <span className={clsx("text-lg")}>{item.question}</span>
+                  <span className={clsx("text-left text-lg")}>
+                    {item.question}
+                  </span>
                   <ChevronRightIcon
                     className={clsx(
                       "w-6 transition-transform group-radix-state-open:rotate-90"
