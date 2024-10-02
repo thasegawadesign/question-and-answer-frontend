@@ -3,8 +3,8 @@ import { options } from "@/app/options";
 import Header from "@/components/header";
 import LoginButton from "@/components/loginButton";
 import LogoutButton from "@/components/logoutButton";
-import { createUser } from "@/utils/createUser";
 import { getUser } from "@/utils/getUser";
+import { registerUser } from "@/utils/registerUser";
 import clsx from "clsx";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
@@ -14,7 +14,7 @@ export default async function Login() {
   const user = await getUser(session?.user?.email as string);
   const isLogin = Boolean(session?.user?.email);
   if (!user) {
-    await createUser(session?.user?.email as string, "Google");
+    await registerUser(session?.user?.email as string, "Google");
   }
   if (isLogin) {
     redirect("/");
