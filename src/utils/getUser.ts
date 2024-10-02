@@ -1,9 +1,15 @@
 export const getUser = async (email: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/users?email=${email}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/users/query-by-email`,
       {
-        method: "GET",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+        }),
       }
     );
     if (!response.ok) {
