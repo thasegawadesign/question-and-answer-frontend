@@ -36,7 +36,8 @@ export default function Home() {
   useEffect(() => {
     if (!session?.user?.email) return;
     const timer = setTimeout(async () => {
-      setItems(await getItems(session?.user?.email as string));
+      const items = await getItems(session?.user?.email as string);
+      setItems(items);
       setIsLoading(false);
     }, 10);
     return () => clearTimeout(timer);
