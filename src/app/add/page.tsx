@@ -6,11 +6,12 @@ import * as Form from "@radix-ui/react-form";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 export default function Add() {
   const { data: session } = useSession();
   const router = useRouter();
+  const inputRef = useRef(null);
 
   const handleSubmit = useCallback(
     async (event: React.FormEvent) => {
@@ -32,6 +33,12 @@ export default function Add() {
     [router, session]
   );
 
+  useEffect(() => {
+    if (inputRef.current) {
+      (inputRef.current as HTMLInputElement).focus();
+    }
+  }, []);
+
   return (
     <>
       <Header />
@@ -46,6 +53,7 @@ export default function Add() {
             <div className={clsx("flex-grow")}>
               <Form.Control asChild>
                 <input
+                  ref={inputRef}
                   className={clsx(
                     "w-full rounded border border-gray-300 px-2 py-2"
                   )}
