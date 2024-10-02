@@ -1,7 +1,7 @@
-export const createUser = async (email: string, provider: string) => {
+export const registerUser = async (email: string, provider: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/users`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/users/register`,
       {
         method: "POST",
         headers: {

@@ -1,9 +1,15 @@
 export const getItems = async (email: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/items?email=${email}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/items/query-by-email`,
       {
-        method: "GET",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+        }),
       }
     );
     if (!response.ok) {

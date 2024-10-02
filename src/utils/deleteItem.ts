@@ -1,7 +1,7 @@
 export const deleteItem = async (id: number, email: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/items`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/items/delete`,
       {
         method: "DELETE",
         headers: {
