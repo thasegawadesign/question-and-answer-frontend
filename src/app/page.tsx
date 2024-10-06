@@ -49,7 +49,7 @@ export default function Home() {
       <main className={clsx("relative px-3 pb-3 pt-3")}>
         <Accordion.Root
           type="multiple"
-          className={clsx("mb-[760px] flex flex-col gap-2")}
+          className={clsx("mb-[calc(100vh-152px)] flex flex-col gap-2")}
         >
           {isLoading && <Loading />}
           {items.map((item, i) => (
