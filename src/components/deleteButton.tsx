@@ -21,7 +21,11 @@ export default function DeleteButton(props: Props) {
       <AlertDialog.Root>
         <AlertDialog.Trigger asChild>
           <button aria-label="削除する">
-            <TrashIcon className={clsx("w-5 shrink-0 text-red-600")} />
+            <TrashIcon
+              className={clsx(
+                "w-6 shrink-0 text-red-600 transition-colors hover:text-red-500"
+              )}
+            />
           </button>
         </AlertDialog.Trigger>
         <AlertDialog.Portal>
