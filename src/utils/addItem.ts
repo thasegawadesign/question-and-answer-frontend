@@ -14,7 +14,7 @@ export const addItem = async (
         body: JSON.stringify({
           question: question,
           answer: answer,
-          user_email: email,
+          email: email,
         }),
       }
     );
