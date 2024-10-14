@@ -13,12 +13,12 @@ export default function Header() {
     <>
       <header
         className={clsx(
-          "sticky top-0 z-50 flex justify-between bg-gray-800 px-3 py-3"
+          "sticky top-0 z-50 flex items-center justify-between bg-gray-800 px-3 py-3.5 sm:px-5"
         )}
       >
         <h1>
           <Link
-            className={clsx(`${mPlusRounded1c.className} text-lg text-white`)}
+            className={clsx(`${mPlusRounded1c.className} text-xl text-white`)}
             href={"/"}
           >
             一問一答メーカー
@@ -26,7 +26,7 @@ export default function Header() {
         </h1>
         <p>
           <Link href={"/add"}>
-            <PlusCircleIcon className="w-8 text-orange-500" />
+            <PlusCircleIcon className="w-9 text-orange-500 transition-colors hover:text-orange-400" />
           </Link>
         </p>
       </header>

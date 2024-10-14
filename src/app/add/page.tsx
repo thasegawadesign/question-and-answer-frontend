@@ -95,7 +95,7 @@ export default function Add() {
             <div className={clsx("pl-[60px]")}>
               <button
                 className={clsx(
-                  "w-full rounded bg-orange-500 px-8 py-3 text-white"
+                  "w-full rounded bg-orange-500 px-8 py-3 text-white transition-colors hover:bg-orange-400"
                 )}
               >
                 追加する
