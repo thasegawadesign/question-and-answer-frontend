@@ -8,7 +8,7 @@ import LogoutButton from "@/components/logoutButton";
 import { Item } from "@/types/Item";
 import { getItems } from "@/utils/getItems";
 import { updateItem } from "@/utils/updateItem";
-import { CheckIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
+import { CheckCircleIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import clsx from "clsx";
 import { useAtom } from "jotai";
@@ -147,9 +147,9 @@ export default function Home() {
                             )
                           }
                         >
-                          <CheckIcon
+                          <CheckCircleIcon
                             className={clsx(
-                              "w-6 text-green-600 hover:text-green-500"
+                              "w-6 text-green-600 transition-colors hover:text-green-500"
                             )}
                           />
                         </button>

@@ -14,7 +14,7 @@ export default function EditButton() {
       >
         <PencilSquareIcon
           className={clsx(
-            "w-6 text-red-600 transition-colors hover:text-red-500"
+            "w-6 text-gray-600 transition-colors hover:text-gray-500"
           )}
         />
       </button>
