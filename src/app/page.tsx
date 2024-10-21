@@ -147,7 +147,11 @@ export default function Home() {
                             )
                           }
                         >
-                          <CheckIcon className={clsx("w-6 text-green-600")} />
+                          <CheckIcon
+                            className={clsx(
+                              "w-6 text-green-600 hover:text-green-500"
+                            )}
+                          />
                         </button>
                       ) : (
                         <EditButton />
