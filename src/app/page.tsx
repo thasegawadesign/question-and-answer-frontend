@@ -122,7 +122,7 @@ export default function Home() {
                   <div className={clsx("flex justify-between gap-2 px-4 pb-4")}>
                     <input
                       ref={editableRef}
-                      className={clsx("w-full bg-gray-100 px-1.5 py-1")}
+                      className={clsx("w-full bg-gray-100 px-2.5 py-1.5")}
                       value={item.answer}
                       onFocus={() => setIsEditing(true)}
                       onChange={(event) => handleChange(item.id, event)}
@@ -135,7 +135,7 @@ export default function Home() {
                         )
                       }
                     />
-                    <div className={clsx("flex gap-1")}>
+                    <div className={clsx("flex gap-1.5")}>
                       {isEditing ? (
                         <button
                           aria-label="決定する"
