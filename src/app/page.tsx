@@ -30,6 +30,7 @@ export default function Home() {
 
   const handleKeydown = useCallback(
     (event: KeyboardEvent) => {
+      if (document.activeElement === editableRef.current) return;
       if (event.key === "Enter") {
         router.push("/add");
       }
