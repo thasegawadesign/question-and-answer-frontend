@@ -1,21 +1,30 @@
 "use client";
 
 import DeleteButton from "@/components/deleteButton";
+import EditButton from "@/components/editButton";
 import Header from "@/components/header";
 import Loading from "@/components/loading";
 import LogoutButton from "@/components/logoutButton";
 import { Item } from "@/types/Item";
 import { getItems } from "@/utils/getItems";
-import { ChevronRightIcon } from "@heroicons/react/16/solid";
+import { updateItem } from "@/utils/updateItem";
+import { CheckIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import clsx from "clsx";
+import { useAtom } from "jotai";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
+import { editAtom } from "./atoms/editAtom";
 
 export default function Home() {
   const { data: session } = useSession();
+
   const router = useRouter();
+
+  const editableRef = useRef<HTMLInputElement>(null);
+
+  const [isEditing, setIsEditing] = useAtom(editAtom);
   const [items, setItems] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -27,6 +36,42 @@ export default function Home() {
     },
     [router]
   );
+
+  const handleChange = useCallback(
+    (id: number, event: ChangeEvent) => {
+      const updateItems = items.map((item) =>
+        item.id === id
+          ? { ...item, answer: (event.target as HTMLInputElement).value }
+          : item
+      );
+      setItems(updateItems);
+    },
+    [items]
+  );
+
+  const handleBlur = useCallback(
+    async (id: number, email: string, question: string, answer: string) => {
+      setIsEditing(false);
+      await updateItem(id, email, question, answer);
+    },
+    [setIsEditing]
+  );
+
+  const handleClick = useCallback(
+    async (id: number, email: string, question: string, answer: string) => {
+      setIsEditing(false);
+      await updateItem(id, email, question, answer);
+    },
+    [setIsEditing]
+  );
+
+  useEffect(() => {
+    const input = editableRef.current;
+    if (!input) return;
+    if (isEditing) {
+      input.focus();
+    }
+  }, [isEditing]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown);
@@ -74,11 +119,44 @@ export default function Home() {
                 </Accordion.AccordionTrigger>
                 <Accordion.AccordionContent>
                   <div className={clsx("flex justify-between gap-2 px-4 pb-4")}>
-                    <span>{item.answer}</span>
-                    <DeleteButton
-                      id={item.id}
-                      email={session?.user?.email as string}
+                    <input
+                      ref={editableRef}
+                      className={clsx("w-full bg-gray-100 px-1.5 py-1")}
+                      value={item.answer}
+                      onFocus={() => setIsEditing(true)}
+                      onChange={(event) => handleChange(item.id, event)}
+                      onBlur={() =>
+                        handleBlur(
+                          item.id,
+                          session?.user?.email as string,
+                          item.question,
+                          item.answer
+                        )
+                      }
                     />
+                    <div className={clsx("flex gap-1")}>
+                      {isEditing ? (
+                        <button
+                          aria-label="決定する"
+                          onClick={() =>
+                            handleClick(
+                              item.id,
+                              session?.user?.email as string,
+                              item.question,
+                              item.answer
+                            )
+                          }
+                        >
+                          <CheckIcon className={clsx("w-6 text-green-600")} />
+                        </button>
+                      ) : (
+                        <EditButton />
+                      )}
+                      <DeleteButton
+                        id={item.id}
+                        email={session?.user?.email as string}
+                      />
+                    </div>
                   </div>
                 </Accordion.AccordionContent>
               </Accordion.Item>
