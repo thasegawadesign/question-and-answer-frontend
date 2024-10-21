@@ -26,6 +26,7 @@ export default function Home() {
 
   const [isEditing, setIsEditing] = useAtom(editAtom);
   const [items, setItems] = useState<Item[]>([]);
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const handleKeydown = useCallback(
@@ -48,6 +49,14 @@ export default function Home() {
       setItems(updateItems);
     },
     [items]
+  );
+
+  const handleFocus = useCallback(
+    (i: number) => {
+      setIsEditing(true);
+      setFocusedIndex(i);
+    },
+    [setIsEditing]
   );
 
   const handleBlur = useCallback(
@@ -124,7 +133,7 @@ export default function Home() {
                       ref={editableRef}
                       className={clsx("w-full bg-gray-100 px-2.5 py-1.5")}
                       value={item.answer}
-                      onFocus={() => setIsEditing(true)}
+                      onFocus={() => handleFocus(i)}
                       onChange={(event) => handleChange(item.id, event)}
                       onBlur={() =>
                         handleBlur(
@@ -136,7 +145,7 @@ export default function Home() {
                       }
                     />
                     <div className={clsx("flex gap-1.5")}>
-                      {isEditing ? (
+                      {isEditing && focusedIndex === i ? (
                         <button
                           aria-label="決定する"
                           onClick={() =>
