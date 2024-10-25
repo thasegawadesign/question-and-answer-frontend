@@ -22,7 +22,7 @@ export default function Home() {
 
   const router = useRouter();
 
-  const editableRef = useRef<HTMLInputElement>(null);
+  const editableRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const [isEditing, setIsEditing] = useAtom(editAtom);
   const [items, setItems] = useState<Item[]>([]);
@@ -31,22 +31,22 @@ export default function Home() {
 
   const handleKeydown = useCallback(
     (event: KeyboardEvent) => {
-      if (document.activeElement === editableRef.current) return;
+      if (isEditing) return;
       if (event.key === "Enter") {
         router.push("/add");
       }
     },
-    [router]
+    [isEditing, router]
   );
 
   const handleChange = useCallback(
     (id: number, event: ChangeEvent) => {
-      const updateItems = items.map((item) =>
+      const updatedItems = items.map((item) =>
         item.id === id
           ? { ...item, answer: (event.target as HTMLInputElement).value }
           : item
       );
-      setItems(updateItems);
+      setItems(updatedItems);
     },
     [items]
   );
@@ -74,14 +74,6 @@ export default function Home() {
     },
     [setIsEditing]
   );
-
-  useEffect(() => {
-    const input = editableRef.current;
-    if (!input) return;
-    if (isEditing) {
-      input.focus();
-    }
-  }, [isEditing]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown);
@@ -130,7 +122,9 @@ export default function Home() {
                 <Accordion.AccordionContent>
                   <div className={clsx("flex justify-between gap-2 px-4 pb-4")}>
                     <input
-                      ref={editableRef}
+                      ref={(element) => {
+                        editableRefs.current[i] = element;
+                      }}
                       className={clsx("w-full bg-gray-100 px-2.5 py-1.5")}
                       value={item.answer}
                       onFocus={() => handleFocus(i)}
@@ -164,7 +158,7 @@ export default function Home() {
                           />
                         </button>
                       ) : (
-                        <EditButton />
+                        <EditButton editableRefs={editableRefs} index={i} />
                       )}
                       <DeleteButton
                         id={item.id}
