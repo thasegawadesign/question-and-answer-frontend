@@ -4,11 +4,11 @@
 
 オリジナルの一問一答を作成して学習に役立てることができます。<br />
 
-- URL：https://question-and-answer.vegetworks.com/
+- URL：https://www.question-and-answer.vegetstudio.com/
 - 使用技術：React/Next.js・TypeScript・Tailwind CSS・Radix UI
 - 機能：アイテム追加/編集/削除
 
-[![一問一答メーカーのアイコン](https://raw.githubusercontent.com/thasegawadesign/question-and-answer-frontend/refs/heads/main/public/icon-512x512.png)](https://question-and-answer.vegetworks.com/)
+[![一問一答メーカーのアイコン](https://raw.githubusercontent.com/thasegawadesign/question-and-answer-frontend/refs/heads/main/public/icon-512x512.png)](https://www.question-and-answer.vegetstudio.com/)
 
 ## 開発について
 
