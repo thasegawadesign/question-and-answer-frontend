@@ -1,8 +1,8 @@
 # 一問一答メーカー
 
-## 暗記に便利なオリジナル一問一答メーカー
+## 暗記のための一問一答メーカー
 
-オリジナルの一問一答を作成して学習に役立てることができます。<br />
+一問一答を登録して学習に役立てることができます。<br />
 
 - URL：https://www.question-and-answer.vegetstudios.com/
 - 使用技術：React/Next.js・TypeScript・Tailwind CSS・Radix UI
