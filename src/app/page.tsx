@@ -94,6 +94,26 @@ export default function Home() {
     <>
       <Header />
       <main className={clsx("relative px-3 pb-3 pt-3")}>
+        {items.length === 0 && !isLoading && (
+          <div className={clsx("py-[35vh] text-center text-gray-500")}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className={clsx("mx-auto mb-5 size-12")}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z"
+              />
+            </svg>
+            <p className={clsx("mb-1 text-lg font-bold")}>アイテムは空です</p>
+            <p>右上のボタンからアイテムを追加できます</p>
+          </div>
+        )}
         <Accordion.Root
           type="multiple"
           className={clsx("mb-[calc(100vh-160px)] flex flex-col gap-2")}
