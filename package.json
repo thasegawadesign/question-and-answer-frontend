@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "check": "pnpm lint && pnpm typecheck",
+    "check": "pnpm lint && pnpm typecheck && pnpm format:check",
     "prepare": "lefthook install"
   },
   "dependencies": {
