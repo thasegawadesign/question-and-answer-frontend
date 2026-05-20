@@ -4,5 +4,3 @@ allowBuilds:
   lefthook: true
   sharp: true
   unrs-resolver: true
-minimumReleaseAgeExclude:
-  - "@types/react@18.3.29"
