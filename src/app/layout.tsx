@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "一問一答メーカー",
   description: "一問一答メーカー",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon-192x192.png",
     apple: "/apple-icon.png",
   },
 };
