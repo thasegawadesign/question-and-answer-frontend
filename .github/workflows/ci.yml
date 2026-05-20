@@ -1,4 +1,4 @@
-name: Lint
+name: CI
 
 on:
   workflow_dispatch:
@@ -7,10 +7,10 @@ on:
       - "**/*.md"
 
 jobs:
-  lint:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Install pnpm
@@ -27,8 +27,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check
+      - name: Run checks
         run: pnpm check
-
-      - name: Prettier
-        run: pnpm exec prettier --check .

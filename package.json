@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "check": "pnpm lint && pnpm typecheck",
+    "check": "pnpm lint && pnpm typecheck && pnpm format:check",
     "prepare": "lefthook install"
   },
   "dependencies": {
@@ -28,8 +29,8 @@
   },
   "devDependencies": {
     "@types/node": "^24.12.4",
-    "@types/react": "^18.3.29",
-    "@types/react-dom": "^18.3.7",
+    "@types/react": "^19.2.6",
+    "@types/react-dom": "^19.2.3",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.10",
     "lefthook": "^2.1.8",
