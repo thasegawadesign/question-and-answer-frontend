@@ -14,10 +14,10 @@
 
 ```bash
 # インストール
-npm install
+pnpm install
 
 # 開発サーバー起動
-npm run dev
+pnpm dev
 ```
 
 開発中は http://localhost:3000 にアクセス。
