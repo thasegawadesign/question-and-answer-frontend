@@ -9,10 +9,10 @@ export default function LogoutButton() {
       <button
         onClick={() => signOut()}
         className={clsx(
-          "flex items-center gap-1 rounded bg-red-600 px-6 py-2.5 text-white"
+          "flex items-center gap-1 rounded-sm bg-red-600 px-6 py-2.5 text-white"
         )}
       >
-        <div className={clsx("block flex-shrink-0 text-sm")}>ログアウト</div>
+        <div className={clsx("block shrink-0 text-sm")}>ログアウト</div>
       </button>
     </>
   );

@@ -94,7 +94,7 @@ export default function Home() {
     <>
       <Header />
       <main
-        className={clsx("relative min-h-[calc(100vh-64px)] px-3 pb-3 pt-3")}
+        className={clsx("relative min-h-[calc(100vh-64px)] px-3 pt-3 pb-3")}
       >
         {items.length === 0 && !isLoading && (
           <div className={clsx("py-[32vh] text-center text-gray-500")}>
@@ -195,7 +195,7 @@ export default function Home() {
         </Accordion.Root>
         <div
           className={clsx(
-            "absolute bottom-3 flex w-[calc(100%-24px)] justify-center rounded bg-red-800 py-4"
+            "absolute bottom-3 flex w-[calc(100%-24px)] justify-center rounded-sm bg-red-800 py-4"
           )}
         >
           <LogoutButton />
