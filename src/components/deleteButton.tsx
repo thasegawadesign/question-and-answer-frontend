@@ -36,7 +36,7 @@ export default function DeleteButton(props: Props) {
           />
           <AlertDialog.Content
             className={clsx(
-              "fixed left-[50%] top-[50%] z-50 max-h-[85vh] w-[90vw] max-w-lg -translate-x-1/2 -translate-y-1/2 animate-contentShow rounded-md bg-white p-6 shadow-black focus:outline-none"
+              "fixed top-[50%] left-[50%] z-50 max-h-[85vh] w-[90vw] max-w-lg -translate-x-1/2 -translate-y-1/2 animate-contentShow rounded-md bg-white p-6 shadow-black focus:outline-hidden"
             )}
           >
             <AlertDialog.Title className={clsx("m-0 mb-1 text-gray-300")}>
@@ -53,7 +53,9 @@ export default function DeleteButton(props: Props) {
               </AlertDialog.Cancel>
               <AlertDialog.Action asChild>
                 <button
-                  className={clsx("rounded bg-red-600 px-6 py-2.5 text-white")}
+                  className={clsx(
+                    "rounded-sm bg-red-600 px-6 py-2.5 text-white"
+                  )}
                   onClick={() => handleClick(id, email)}
                 >
                   削除する

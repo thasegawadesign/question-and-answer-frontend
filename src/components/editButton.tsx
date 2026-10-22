@@ -2,7 +2,7 @@ import { editAtom } from "@/app/atoms/editAtom";
 import { PencilSquareIcon } from "@heroicons/react/16/solid";
 import clsx from "clsx";
 import { useAtom } from "jotai";
-import { MutableRefObject, useCallback } from "react";
+import { MutableRefObject } from "react";
 
 type Props = {
   editableRefs: MutableRefObject<(HTMLInputElement | null)[]>;
@@ -14,10 +14,10 @@ export default function EditButton(props: Props) {
 
   const [, setIsEditing] = useAtom(editAtom);
 
-  const handleClick = useCallback(() => {
+  const handleClick = () => {
     setIsEditing((prev) => !prev);
     editableRefs.current[index]?.focus();
-  }, [editableRefs, index, setIsEditing]);
+  };
 
   return (
     <>

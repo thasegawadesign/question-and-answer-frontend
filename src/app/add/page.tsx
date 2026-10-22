@@ -42,20 +42,20 @@ export default function Add() {
   return (
     <>
       <Header />
-      <main className={clsx("pl-1.5 pr-3 pt-3")}>
+      <main className={clsx("pt-3 pr-3 pl-1.5")}>
         <Form.Root onSubmit={handleSubmit}>
           <Form.Field className={clsx("mb-2 flex gap-1")} name="question">
             <div className={clsx("grid shrink-0 place-items-start")}>
-              <Form.Label className="question rounded bg-gray-800 px-3 py-2 text-white">
+              <Form.Label className="question rounded-sm bg-gray-800 px-3 py-2 text-white">
                 問題
               </Form.Label>
             </div>
-            <div className={clsx("flex-grow")}>
+            <div className={clsx("grow")}>
               <Form.Control asChild>
                 <input
                   ref={inputRef}
                   className={clsx(
-                    "w-full rounded border border-gray-300 px-2 py-2"
+                    "w-full rounded-sm border border-gray-300 px-2 py-2"
                   )}
                   type="text"
                   required
@@ -73,11 +73,11 @@ export default function Add() {
             <div className={clsx("grid shrink-0 place-items-start")}>
               <Form.Label className={clsx("answer px-3 py-2")}>解答</Form.Label>
             </div>
-            <div className={clsx("flex-grow")}>
+            <div className={clsx("grow")}>
               <Form.Control asChild>
                 <input
                   className={clsx(
-                    "w-full rounded border border-gray-300 px-2 py-2"
+                    "w-full rounded-sm border border-gray-300 px-2 py-2"
                   )}
                   type="text"
                   required
@@ -95,7 +95,7 @@ export default function Add() {
             <div className={clsx("pl-[60px]")}>
               <button
                 className={clsx(
-                  "w-full rounded bg-orange-500 px-8 py-3 text-white transition-colors hover:bg-orange-400"
+                  "w-full rounded-sm bg-orange-500 px-8 py-3 text-white transition-colors hover:bg-orange-400"
                 )}
               >
                 追加する
