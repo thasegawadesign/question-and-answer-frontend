@@ -7,6 +7,7 @@ export const registerUser = async (email: string, provider: string) => {
         headers: {
           "Content-Type": "application/json",
         },
+        signal: AbortSignal.timeout(8000),
         body: JSON.stringify({
           email: email,
           provider: provider,

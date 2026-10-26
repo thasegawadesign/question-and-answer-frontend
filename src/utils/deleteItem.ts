@@ -7,6 +7,7 @@ export const deleteItem = async (id: number, email: string) => {
         headers: {
           "Content-Type": "application/json",
         },
+        signal: AbortSignal.timeout(8000),
         body: JSON.stringify({
           id: id,
           email: email,

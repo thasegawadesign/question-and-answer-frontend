@@ -12,6 +12,7 @@ export const updateItem = async (
         headers: {
           "Content-Type": "application/json",
         },
+        signal: AbortSignal.timeout(8000),
         body: JSON.stringify({
           id: id,
           email: email,
