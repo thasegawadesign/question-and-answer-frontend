@@ -5,3 +5,9 @@ export default withAuth({
     signIn: "/auth/login",
   },
 });
+
+export const config = {
+  matcher: [
+    "/((?!api/auth|auth/login|_next/static|_next/image|favicon.ico|manifest.webmanifest|.*\\.(?:png|jpg|svg|ico|woff2?)$).*)",
+  ],
+};

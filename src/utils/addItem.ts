@@ -11,6 +11,7 @@ export const addItem = async (
         headers: {
           "Content-Type": "application/json",
         },
+        signal: AbortSignal.timeout(8000),
         body: JSON.stringify({
           question: question,
           answer: answer,
